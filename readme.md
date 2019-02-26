@@ -9,10 +9,9 @@ Heavily inspired by [https://github.com/jfollenfant/mongodb-sharding-docker-comp
 ### Mongo Components
 
 * Config Server (3 member replica set): `config01`,`config02`,`config03`
-* 3 Shards (each a 2 member replica set):
+* 2 Shards (each a 3 member replica set):
 	* `shard01a`,`shard01b`
 	* `shard02a`,`shard02b`
-	* `shard03a`,`shard03b`
 * 1 Router (mongos): `router`
 * (TODO): DB data persistence using docker data volumes
 
@@ -44,9 +43,8 @@ mongos> sh.status()
 	"clusterId" : ObjectId("5981df064c97b126d0e5aa0e")
 }
   shards:
-	{  "_id" : "shard01",  "host" : "shard01/shard01a:27018,shard01b:27018",  "state" : 1 }
-	{  "_id" : "shard02",  "host" : "shard02/shard02a:27019,shard02b:27019",  "state" : 1 }
-	{  "_id" : "shard03",  "host" : "shard03/shard03a:27020,shard03b:27020",  "state" : 1 }
+	{  "_id" : "shard01",  "host" : "shard01/shard01a:27017,shard01b:27017",  "state" : 1 }
+	{  "_id" : "shard02",  "host" : "shard02/shard02a:27017,shard02b:27017",  "state" : 1 }
   active mongoses:
 	"3.4.6" : 1
  autosplit:
